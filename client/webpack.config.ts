@@ -52,9 +52,9 @@ const config: Configuration = {
   },
 
   resolve: {
-    // alias: {
-    //   'react-dom': '@hot-loader/react-dom'
-    // },
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    },
 
     extensions: ['.tsx', '.ts', '.mjs', '.js', '.json']
   },
