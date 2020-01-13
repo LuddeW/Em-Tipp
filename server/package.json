@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "@em-tipp/server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "start:dev": "nodemon index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuddeW/Em-Tipp.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/LuddeW/Em-Tipp/issues"
+  },
+  "homepage": "https://github.com/LuddeW/Em-Tipp#readme",
+  "devDependencies": {
+    "@types/dotenv-flow": "^3.0.0",
+    "@types/express": "^4.17.2",
+    "@types/node": "^13.1.6",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2"
+  },
+  "dependencies": {
+    "dotenv-flow": "^3.1.0",
+    "express": "^4.17.1"
+  }
+}
