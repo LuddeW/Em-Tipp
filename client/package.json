@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack --config webpack.config.ts",
-    "storybook": "start-storybook --quiet --ci -s public -c .storybook"
+    "storybook": "start-storybook --quiet --ci -p 4003 -s public -c .storybook"
   },
   "repository": {
     "type": "git",
