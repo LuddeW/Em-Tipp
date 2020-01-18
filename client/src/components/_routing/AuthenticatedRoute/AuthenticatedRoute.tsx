@@ -5,6 +5,9 @@ import {
   RouteComponentProps,
   Redirect
 } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
+import { getIsAuthenticated } from '../../../modules/authentication/authentication.selectors'
 
 interface AuthenticatedRouteProps extends RouteProps {}
 
@@ -14,7 +17,7 @@ export default function AuthenticatedRoute({
 
   ...routeProps
 }: AuthenticatedRouteProps) {
-  const isAuthenticated = false // TODO: read from store
+  const isAuthenticated = useSelector(getIsAuthenticated)
 
   function onRouteRender(routeRenderProps: RouteComponentProps) {
     if (isAuthenticated) {
