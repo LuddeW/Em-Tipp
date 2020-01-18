@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import TextInput from '../_inputs/TextInput'
 
@@ -7,12 +7,12 @@ interface QuestionCardProps {
 }
 
 export default function QuestionCard({ question }: QuestionCardProps) {
-  const [value, setValue] = React.useState('')
+  const [value, setValue] = useState('')
 
   return (
     <div>
       <h2>{question}</h2>
-      <TextInput name={question} value={value} onChange={setValue}></TextInput>
+      <TextInput name={question} value={value} onChange={setValue} />
     </div>
   )
 }
