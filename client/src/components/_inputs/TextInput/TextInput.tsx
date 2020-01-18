@@ -1,15 +1,10 @@
 import React from 'react'
 
 import BaseInput from '../BaseInput'
+import { BaseInputProps } from '../BaseInput/BaseInput'
 
-interface TextInputProps {
-  name: string
-  value: string
-  onChange: (value: string, event: React.ChangeEvent<HTMLInputElement>) => void
-}
+interface TextInputProps extends Omit<BaseInputProps, 'type'> {}
 
 export default function TextInput({ name, value, onChange }: TextInputProps) {
-  return (
-    <BaseInput type={'text'} name={name} value={value} onChange={onChange} />
-  )
+  return <BaseInput type="text" name={name} value={value} onChange={onChange} />
 }
