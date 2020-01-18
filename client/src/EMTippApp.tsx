@@ -2,6 +2,7 @@ import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import { Provider } from 'react-redux'
 
+import Router from './components/_routing/Router'
 import { EMTippStore } from './store/store.types'
 
 interface EMTippAppProps {
@@ -11,7 +12,7 @@ interface EMTippAppProps {
 function EMTippApp({ store }: EMTippAppProps) {
   return (
     <Provider store={store}>
-      <main>EM Tipp</main>
+      <Router />
     </Provider>
   )
 }
