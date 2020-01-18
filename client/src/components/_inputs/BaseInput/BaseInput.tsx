@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface BaseInputProps {
+export interface BaseInputProps {
   name: string
   type: string
   value: string
