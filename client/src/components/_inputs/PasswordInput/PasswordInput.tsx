@@ -1,12 +1,9 @@
 import React from 'react'
 
-import BaseInput, { BaseInputProps } from '../BaseInput'
+import BaseInput from '../BaseInput'
+import { BaseInputProps } from '../BaseInput/BaseInput'
 
-interface PasswordInputProps extends Omit<BaseInputProps, 'type'> {
-  name: string
-  value: string
-  onChange: (value: string, event: React.ChangeEvent<HTMLInputElement>) => void
-}
+interface PasswordInputProps extends Omit<BaseInputProps, 'type'> {}
 
 export default function PasswordInput({
   name,
@@ -14,11 +11,6 @@ export default function PasswordInput({
   onChange
 }: PasswordInputProps) {
   return (
-    <BaseInput
-      type={'password'}
-      name={name}
-      value={value}
-      onChange={onChange}
-    />
+    <BaseInput type="password" name={name} value={value} onChange={onChange} />
   )
 }
