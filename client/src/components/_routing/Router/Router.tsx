@@ -10,7 +10,7 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           <WelcomePage />
         </Route>
 
