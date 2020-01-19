@@ -1,7 +1,7 @@
 import React from 'react'
 
 import PageLayout from '../_layouts/PageLayout'
-import QuestionCard from '../QuestionCard'
+import Question from '../Question'
 
 export interface QuestionObject {
   id: string
@@ -18,10 +18,7 @@ export default function QuestionPage({
 }: QuestionPageInterface) {
   const questions = questionsArray.map(questionObject => {
     return (
-      <QuestionCard
-        question={questionObject.question}
-        key={questionObject.id}
-      />
+      <Question question={questionObject.question} key={questionObject.id} />
     )
   })
 
