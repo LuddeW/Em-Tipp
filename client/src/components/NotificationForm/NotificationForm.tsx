@@ -2,11 +2,7 @@ import React, { useState } from 'react'
 
 import Checkbox from '../CheckboxComponent/Checkbox'
 
-interface QuestionCardProps {
-  question: string
-}
-
-export default function NotificationCard() {
+export default function NotificationForm() {
   const [gameResultChecked, setGameResultChecked] = useState(false)
   const [resultChecked, setResultChecked] = useState(false)
   const [answerChecked, setAnswerChecked] = useState(false)
