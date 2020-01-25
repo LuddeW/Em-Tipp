@@ -6,7 +6,7 @@ interface QuestionCardProps {
   question: string
 }
 
-export default function QuestionCard({ question }: QuestionCardProps) {
+export default function Question({ question }: QuestionCardProps) {
   const [value, setValue] = useState('')
 
   return (
