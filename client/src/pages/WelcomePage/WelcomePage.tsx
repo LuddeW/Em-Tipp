@@ -1,12 +1,12 @@
 import React from 'react'
 
 import PageLayout from '../../components/_layouts/PageLayout'
-import Header from '../../components/_typography/Header'
+import Heading from '../../components/_typography/Heading'
 
 export default function WelcomePage() {
   return (
     <PageLayout>
-      <Header text="EM-Kampen 🏆" />
+      <Heading text="EM-Kampen 🏆" />
 
       <p>Logga in med ditt användarnamn och PIN-kod för att börja tippa.</p>
 

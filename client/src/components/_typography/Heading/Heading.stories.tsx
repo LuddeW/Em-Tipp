@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Header from './Header'
+import Heading from './Heading'
 
 export default {
-  component: Header,
+  component: Heading,
   title: 'components/Header'
 }
 
 export function main() {
-  return <Header text="Header text" />
+  return <Heading text="Header text" />
 }

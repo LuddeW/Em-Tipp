@@ -1,0 +1,11 @@
+import React from 'react'
+
+import './heading.scss'
+
+interface HeadingProps {
+  text: string
+}
+
+export default function Heading({ text }: HeadingProps) {
+  return <h1>{text}</h1>
+}

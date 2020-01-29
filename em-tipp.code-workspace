@@ -42,6 +42,8 @@
 
     "css.validate": false,
     "scss.validate": false,
-    "stylelint.autoFixOnSave": true
+    "stylelint.autoFixOnSave": true,
+
+    "createreactfoldercomponent.templateLanguage": "TypeScript"
   }
 }
