@@ -6,6 +6,8 @@ import { render } from 'react-dom'
 import EMTippApp from './EMTippApp'
 import createEMTippStore from './store/createStore'
 
+import './styles/main.scss'
+
 const rootElement = document.querySelector('#app')
 
 const store = createEMTippStore()

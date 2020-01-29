@@ -1,0 +1,11 @@
+.uppercase-heading {
+  text-transform: uppercase;
+}
+
+.string-child {
+  display: inline-block;
+
+  &::first-letter {
+    font-size: 1.5em;
+  }
+}
