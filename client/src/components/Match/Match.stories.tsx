@@ -12,6 +12,6 @@ const props = {
   awayTeam: 'Spain'
 }
 
-export function resultDeciderComponent() {
+export function matchComponent() {
   return <Match {...props} />
 }
