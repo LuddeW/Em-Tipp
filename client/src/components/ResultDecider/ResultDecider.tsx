@@ -25,7 +25,3 @@ export default function ResultDecider() {
     </div>
   )
 }
-
-function setCheckboxes(event) {
-  return ''
-}
