@@ -2,12 +2,12 @@ import React from 'react'
 
 import LoginForm from '../../components/LoginForm'
 import PageLayout from '../../components/_layouts/PageLayout'
-import Header from '../../components/_typography/Header'
+import Heading from '../../components/_typography/Heading'
 
 export default function WelcomePage() {
   return (
     <PageLayout>
-      <Header text="EM-Kampen 🏆" />
+      <Heading text="EM-Kampen 🏆" />
       <LoginForm />
     </PageLayout>
   )
