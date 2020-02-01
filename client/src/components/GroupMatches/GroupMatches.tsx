@@ -2,19 +2,18 @@ import React from 'react'
 
 import Match from '../Match'
 
-export interface GroupTableRowProps {
+export interface GroupMatchProps {
   id: number
   homeTeam: string
   awayTeam: string
 }
 
 export interface GroupMatchesProps {
-  matches: GroupTableRowProps[]
+  matches: GroupMatchProps[]
 }
 
-// Need to solve the type problem below
 export default function GroupTable({ matches }: GroupMatchesProps) {
-  const gropuTable = matches.map((match: GroupTableRowProps) => {
+  const gropuTable = matches.map((match: GroupMatchProps) => {
     return (
       <Match
         homeTeam={match.homeTeam}
