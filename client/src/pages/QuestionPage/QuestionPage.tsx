@@ -2,6 +2,7 @@ import React from 'react'
 
 import PageLayout from '../../components/_layouts/PageLayout'
 import Question from '../../components/Question'
+import Heading from '../../components/_typography/Heading'
 
 export interface QuestionObject {
   id: string
@@ -22,5 +23,10 @@ export default function QuestionPage({
     )
   })
 
-  return <PageLayout>{questions}</PageLayout>
+  return (
+    <PageLayout>
+      <Heading text="Questions" />
+      {questions}
+    </PageLayout>
+  )
 }
