@@ -8,7 +8,7 @@ export interface GroupsInterface {
   groups: GroupProps[]
 }
 
-export default function QuestionPage({ groups }: GroupsInterface) {
+export default function MatchDecisionPage({ groups }: GroupsInterface) {
   const questions = groups.map((group, x) => {
     return <Group {...group} key={x} />
   })

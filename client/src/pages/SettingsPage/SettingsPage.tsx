@@ -9,7 +9,7 @@ export interface usernameProps {
   username: string
 }
 
-export default function QuestionPage({ username }: usernameProps) {
+export default function SettingsPage({ username }: usernameProps) {
   const [userNameValue, setUserNameValue] = useState('')
 
   return (
