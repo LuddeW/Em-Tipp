@@ -4,7 +4,7 @@ import QuestionPage from './QuestionPage'
 
 export default {
   component: QuestionPage,
-  title: 'components/QuestionPage'
+  title: 'pages/QuestionPage'
 }
 
 const questionArray = [

@@ -7,6 +7,6 @@ export default {
   title: 'pages/LoginPage'
 }
 
-export function question() {
+export function questionPage() {
   return <LoginPage />
 }
