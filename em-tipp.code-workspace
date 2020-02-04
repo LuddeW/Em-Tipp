@@ -43,6 +43,16 @@
     "css.validate": false,
     "scss.validate": false,
 
-    "createreactfoldercomponent.templateLanguage": "TypeScript"
+    "createreactfoldercomponent.templateLanguage": "TypeScript",
+    "createreactfoldercomponent.typeScriptStyledComponentTemplate": [
+      "import React from 'react'",
+      "import styles from './$STYLE_COMPONENT_FILENAME'",
+      "",
+      "interface $COMPONENT_NAMEProps {",
+      "}",
+      "",
+      "export default function $COMPONENT_NAME({}: $COMPONENT_NAMEProps) {",
+      "}"
+    ]
   }
 }

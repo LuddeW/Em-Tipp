@@ -35,11 +35,21 @@ module.exports = {
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': 'error',
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        args: 'after-used',
+        caughtErrors: 'all'
+      }
+    ],
 
     'import/order': [
       'error',
       {
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: false
+        },
         'newlines-between': 'always',
         groups: [
           'builtin',
@@ -48,7 +58,15 @@ module.exports = {
           'parent',
           'sibling',
           'index'
-        ]
+        ],
+        pathGroups: [
+          {
+            pattern: './*.scss',
+            group: 'index',
+            position: 'after'
+          }
+        ],
+        pathGroupsExcludedImportTypes: ['builtin']
       }
     ]
   }

@@ -21,6 +21,15 @@ module.exports = {
 
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
+    'react/jsx-sort-props': [
+      'error',
+      {
+        callbacksLast: true,
+        shorthandLast: true,
+        noSortAlphabetically: true,
+        reservedFirst: ['key']
+      }
+    ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn'
   },
