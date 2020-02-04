@@ -9,15 +9,6 @@
     "build": "webpack --config webpack.config.ts",
     "storybook": "start-storybook --quiet --ci -p 4003 -s public -c .storybook"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LuddeW/Em-Tipp.git"
-  },
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/LuddeW/Em-Tipp/issues"
-  },
-  "homepage": "https://github.com/LuddeW/Em-Tipp#readme",
   "devDependencies": {
     "@babel/core": "^7.8.0",
     "@babel/plugin-proposal-class-properties": "^7.8.0",
