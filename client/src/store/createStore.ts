@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-export default function createEMTippStore() {
+export default function createEMTippStore(): EMTippStore {
   const composeEnhancers =
     __DEV__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -22,7 +22,7 @@ export default function createEMTippStore() {
   const store = createStore(
     combineReducers(allReducers),
     composeEnhancers(applyMiddleware(...middleware))
-  ) as EMTippStore
+  )
 
   if (__DEV__) {
     // @ts-ignore
