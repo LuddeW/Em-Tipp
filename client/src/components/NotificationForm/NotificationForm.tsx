@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import Checkbox from '../CheckboxComponent/Checkbox'
+import Checkbox from '../Checkbox'
 
 export default function NotificationForm() {
   const [gameResultChecked, setGameResultChecked] = useState(false)
