@@ -9,8 +9,8 @@
   "extensions": {
     "recommendations": [
       "EditorConfig.EditorConfig",
-      "hex-ci.stylelint-plus",
-      "esbenp.prettier-vscode"
+      "esbenp.prettier-vscode",
+      "stylelint.vscode-stylelint"
     ]
   },
 
@@ -42,7 +42,6 @@
 
     "css.validate": false,
     "scss.validate": false,
-    "stylelint.autoFixOnSave": true,
 
     "createreactfoldercomponent.templateLanguage": "TypeScript"
   }
