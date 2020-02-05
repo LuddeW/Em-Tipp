@@ -6,24 +6,17 @@ module.exports = {
   parser: '@typescript-eslint/parser',
 
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
     ecmaVersion: 2018,
     sourceType: 'module'
   },
 
   env: {
-    browser: true,
-    es6: true,
-    node: false
+    es6: true
   },
 
   extends: [
     'standard',
 
-    'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
 
@@ -31,37 +24,11 @@ module.exports = {
     'prettier/@typescript-eslint'
   ],
 
-  plugins: [
-    '@typescript-eslint',
-    'react',
-    'react-hooks',
-    'jsx-a11y',
-    'prettier'
-  ],
-
-  settings: {
-    react: {
-      version: 'detect'
-    }
-  },
+  plugins: ['@typescript-eslint', 'prettier'],
 
   rules: {
     'no-console': 'error',
     'no-empty-pattern': 'off',
-
-    'react/jsx-uses-react': 'error',
-    'react/jsx-uses-vars': 'error',
-    'react/jsx-sort-props': [
-      'error',
-      {
-        callbacksLast: true,
-        shorthandLast: true,
-        noSortAlphabetically: true,
-        reservedFirst: ['key']
-      }
-    ],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
 
     'prettier/prettier': ['error', prettierConfig],
 
@@ -102,9 +69,5 @@ module.exports = {
         pathGroupsExcludedImportTypes: ['builtin']
       }
     ]
-  },
-
-  globals: {
-    process: 'readonly'
   }
 }

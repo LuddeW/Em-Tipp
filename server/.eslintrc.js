@@ -1,8 +1,10 @@
-module.exports = {
- extends: '../.eslintrc.js',
+const baseConfig = require('@em-tipp/tools/.eslintrc')
 
- env: {
-   browser: false,
-   node: true
- }
+module.exports = {
+  ...baseConfig,
+
+  env: {
+    ...baseConfig.env,
+    node: true
+  }
 }
