@@ -9,15 +9,21 @@
   "extensions": {
     "recommendations": [
       "EditorConfig.EditorConfig",
-      "hex-ci.stylelint-plus",
-      "esbenp.prettier-vscode"
+      "esbenp.prettier-vscode",
+      "stylelint.vscode-stylelint"
     ]
   },
 
   "settings": {
+    "files.eol": "\r\n",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+
     "files.exclude": {
       "**/node_modules": true,
-      "**/package-lock.json": true
+      "**/yarn.lock": true
     },
 
     "search.exclude": {
@@ -25,6 +31,7 @@
     },
 
     "typescript.tsdk": "node_modules\\typescript\\lib",
+    "typescript.preferences.importModuleSpecifier": "relative",
 
     "eslint.validate": [
       "javascript",
@@ -42,8 +49,17 @@
 
     "css.validate": false,
     "scss.validate": false,
-    "stylelint.autoFixOnSave": true,
 
-    "createreactfoldercomponent.templateLanguage": "TypeScript"
+    "createreactfoldercomponent.templateLanguage": "TypeScript",
+    "createreactfoldercomponent.typeScriptStyledComponentTemplate": [
+      "import React from 'react'",
+      "import styles from './$STYLE_COMPONENT_FILENAME'",
+      "",
+      "interface $COMPONENT_NAMEProps {",
+      "}",
+      "",
+      "export default function $COMPONENT_NAME({}: $COMPONENT_NAMEProps) {",
+      "}"
+    ]
   }
 }

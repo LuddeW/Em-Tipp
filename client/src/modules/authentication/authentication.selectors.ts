@@ -10,3 +10,8 @@ export const getIsAuthenticated = createSelector(
   getAuthenticationState,
   authenticationState => authenticationState.loggedInUserId !== null
 )
+
+export const getAuthenticatedUserId = createSelector(
+  getAuthenticationState,
+  authenticationState => authenticationState.loggedInUserId
+)
