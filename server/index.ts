@@ -6,6 +6,7 @@ import expressSession from 'express-session'
 import apiRouter from './api'
 import createClientRoute from './client-routing/createClientRoute'
 import config from './config'
+import { setup } from './db/postgres'
 import forceSsl from './middleware/forceSsl'
 import { setupPassport } from './passport'
 
@@ -13,6 +14,15 @@ const app = express()
 
 if (config.forceSsl) {
   app.use(forceSsl)
+}
+
+if (config.databaseUrl) {
+  try {
+    setup(config.databaseUrl)
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+  }
 }
 
 app.disable('x-powered-by')
