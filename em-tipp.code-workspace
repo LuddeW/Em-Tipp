@@ -15,6 +15,12 @@
   },
 
   "settings": {
+    "files.eol": "\r\n",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+
     "files.exclude": {
       "**/node_modules": true,
       "**/yarn.lock": true
@@ -25,6 +31,7 @@
     },
 
     "typescript.tsdk": "node_modules\\typescript\\lib",
+    "typescript.preferences.importModuleSpecifier": "relative",
 
     "eslint.validate": [
       "javascript",
