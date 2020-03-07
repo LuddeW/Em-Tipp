@@ -1,6 +1,7 @@
 export type UserId = string
 
 export interface User {
-  id: UserId
-  name: string
+  readonly id: UserId
+  readonly username: string
+  readonly displayName?: string
 }
