@@ -2,13 +2,7 @@ import { Express } from 'express'
 import passport from 'passport'
 import { Strategy as LocalStrategy } from 'passport-local'
 
-async function tryAuthenticateUser(username: string, pin: string) {
-  return { id: -1 }
-}
-
-async function getUserById(id: string) {
-  return { id }
-}
+import { authenticateUser, getUserById } from './db/models/users.query'
 
 export function setupPassport(app: Express) {
   passport.use(
@@ -16,7 +10,7 @@ export function setupPassport(app: Express) {
       let user
 
       try {
-        await tryAuthenticateUser(username, pin)
+        await authenticateUser(username, pin)
       } catch (error) {
         return done(error)
       }

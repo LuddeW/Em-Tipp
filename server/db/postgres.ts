@@ -39,23 +39,19 @@ export async function run(query: string, values: string) {
   }
 }
 
-exports.run = async (query: string, values: string) => {
-  try {
-    const result = await pool.query(query, values)
-    return result
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error)
-  }
+export async function get(query: string, values: string[]) {
+  return pool.query(query, values).then(({ rows }: any) => rows[0])
 }
 
-exports.get = (query: string, values: string[]) =>
-  pool.query(query, values).then(({ rows }: any) => rows[0])
+export async function update(query: string, values: string[]) {
+  return pool.query(query, values).then(({ rowCount }: any) => rowCount)
+}
 
-exports.all = (query: string, values: string[]) =>
-  pool.query(query, values).then(({ rows }: any) => rows)
+export async function all(query: string, values: string[]) {
+  return pool.query(query, values).then(({ rows }: any) => rows)
+}
 
-exports.insert = (tableName: string, columns: string[], values: string[]) => {
+export function insert(tableName: string, columns: string[], values: string[]) {
   const queryColumns = columns.join(', ')
   const queryValues = columns.map((_, index) => `$${index + 1}`).join(', ')
 
