@@ -1,12 +1,15 @@
 import { Router } from 'express'
 import passport from 'passport'
 
+import baseLogger from '../logging'
 import ensureUserAuthenticated from '../middleware/ensureUserAuthenticated'
 
 const userRouter = Router()
 
 userRouter.post('/login', passport.authenticate('local'), (req, res) => {
   const { user } = req
+
+  baseLogger.debug('Logged in user', user)
 
   res
     .status(200)
@@ -16,6 +19,9 @@ userRouter.post('/login', passport.authenticate('local'), (req, res) => {
 
 userRouter.post('/logout', (req, res) => {
   req.logout()
+
+  baseLogger.debug('Logged out user')
+
   res.status(200).end({ message: 'Logged out' })
 })
 
