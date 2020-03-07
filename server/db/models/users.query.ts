@@ -3,7 +3,7 @@ const { get, update } = require('../postgres.ts')
 export async function authenticateUser(username: string, pin: string) {
   if (username && pin) {
     const query =
-      'SELECT id, username, displayname FROM USERS WHERE USERNAME=$1 AND PIN=$2'
+      'SELECT id, username, displayname FROM USERS WHERE lower(USERNAME)=lower($1) AND PIN=$2'
     const values = [username, pin]
 
     return get(query, values).then((result: any) => result)
