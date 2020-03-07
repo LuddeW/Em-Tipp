@@ -1,7 +1,7 @@
 import { EMTippStoreDispatch } from '../../store/store.types'
 import { UserId } from '../../types/user.types'
 
-import { fetchLogin } from './authentication.fetch'
+import { fetchLogin, tryFetchAuthenticatedUser } from './authentication.fetch'
 import {
   LoginRequestAction,
   LoginFailureAction,
@@ -24,6 +24,20 @@ export function login(username: string, password: string) {
     }
 
     dispatch(loginSuccess(response.id))
+  }
+}
+
+export function tryGetAuthenticatedUser() {
+  return async (dispatch: EMTippStoreDispatch) => {
+    dispatch(loginRequest())
+    let response: any
+    try {
+      response = await tryFetchAuthenticatedUser()
+    } catch (_) {
+      return
+    }
+
+    dispatch(loginSuccess(response))
   }
 }
 
