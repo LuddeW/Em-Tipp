@@ -22,7 +22,10 @@ userRouter.post('/logout', (req, res) => {
 
   baseLogger.debug('Logged out user')
 
-  res.status(200).end({ message: 'Logged out' })
+  res
+    .status(200)
+    .send({ message: 'Logged out' })
+    .end()
 })
 
 userRouter.get('/', ensureUserAuthenticated, (req, res) => {
