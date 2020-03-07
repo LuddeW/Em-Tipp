@@ -8,7 +8,10 @@ export default function ensureUserAuthenticated(
   next: NextFunction
 ) {
   if (!request.isAuthenticated()) {
-    response.status(401).end({ message: STATUS_CODES[401] })
+    response
+      .status(401)
+      .send({ message: STATUS_CODES[401] })
+      .end()
   } else {
     next()
   }

@@ -10,7 +10,7 @@ export function setupPassport(app: Express) {
       let user
 
       try {
-        await authenticateUser(username, pin)
+        user = await authenticateUser(username, pin)
       } catch (error) {
         return done(error)
       }

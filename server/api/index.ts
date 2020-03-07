@@ -9,7 +9,10 @@ const apiRouter = Router()
 apiRouter.use('/user', userRouter)
 
 apiRouter.use((req, res) => {
-  res.status(404).end({ message: STATUS_CODES[404] })
+  res
+    .status(404)
+    .send({ message: STATUS_CODES[404] })
+    .end()
 })
 
 export default apiRouter
