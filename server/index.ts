@@ -7,6 +7,8 @@ import apiRouter from './api'
 import createClientRoute from './client-routing/createClientRoute'
 import config from './config'
 import { setup } from './db/postgres'
+import baseLogger from './logging'
+import addRequestId from './middleware/addRequestId'
 import forceSsl from './middleware/forceSsl'
 import { setupPassport } from './passport'
 
@@ -20,12 +22,13 @@ if (config.databaseUrl) {
   try {
     setup(config.databaseUrl)
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error)
+    baseLogger.error('Failed to setup database', { error })
   }
 }
 
 app.disable('x-powered-by')
+
+app.use(addRequestId)
 
 app.use(cookieParser())
 app.use(bodyParser.json())
@@ -37,11 +40,12 @@ app.use(
     saveUninitialized: true
   })
 )
-
 setupPassport(app)
 
 app.use('/api', apiRouter)
 
 app.use(createClientRoute())
 
-app.listen(process.env.PORT || 4002, () => {})
+app.listen(config.port, () => {
+  baseLogger.info(`Server started on port:${config.port}`, config)
+})
