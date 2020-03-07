@@ -5,6 +5,19 @@ import { BaseInputProps } from '../BaseInput/BaseInput'
 
 interface TextInputProps extends Omit<BaseInputProps, 'type'> {}
 
-export default function TextInput({ name, value, onChange }: TextInputProps) {
-  return <BaseInput type="text" name={name} value={value} onChange={onChange} />
+export default function TextInput({
+  name,
+  value,
+  onChange,
+  disabled
+}: TextInputProps) {
+  return (
+    <BaseInput
+      type="text"
+      name={name}
+      value={value}
+      disabled={disabled}
+      onChange={onChange}
+    />
+  )
 }

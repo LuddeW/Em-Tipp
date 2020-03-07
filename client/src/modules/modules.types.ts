@@ -1,4 +1,7 @@
-import { AuthenticationState } from './authentication/authentication.types'
+import {
+  AuthenticationState,
+  AuthenticationActions
+} from './authentication/authentication.types'
 import { CompetitionState } from './competition/competition.types'
 import { MatchGuessesState } from './matchGuesses/matchGuesses.types'
 import { MatchesState } from './matches/matches.types'
@@ -16,4 +19,4 @@ export interface EMTippStoreState {
   readonly users: UsersState
 }
 
-export type AllStoreActions = any
+export type AllStoreActions = AuthenticationActions
