@@ -43,6 +43,10 @@ export async function get(query: string, values: string[]) {
   return pool.query(query, values).then(({ rows }: any) => rows[0])
 }
 
+export async function update(query: string, values: string[]) {
+  return pool.query(query, values).then(({ rowCount }: any) => rowCount)
+}
+
 export async function all(query: string, values: string[]) {
   return pool.query(query, values).then(({ rows }: any) => rows)
 }
