@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "@em-tipp/common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "types": "index",
+  "devDependencies": {
+    "@em-tipp/tools": "*"
+  }
+}

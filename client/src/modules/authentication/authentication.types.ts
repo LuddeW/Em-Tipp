@@ -1,5 +1,6 @@
+import { UserId } from '@em-tipp/common/types'
+
 import { EmptyAction, PayloadAction } from '../../store/store.types'
-import { UserId } from '../../types/user.types'
 
 import {
   LOGIN_REQUEST,

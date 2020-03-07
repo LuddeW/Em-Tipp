@@ -1,3 +1,4 @@
+import { AdminState } from './admin/admin.types'
 import {
   AuthenticationState,
   AuthenticationActions
@@ -10,6 +11,7 @@ import { QuestionsState } from './questions/questions.types'
 import { UsersState } from './users/users.types'
 
 export interface EMTippStoreState {
+  readonly admin?: AdminState
   readonly authentication: AuthenticationState
   readonly competition: CompetitionState
   readonly matches: MatchesState

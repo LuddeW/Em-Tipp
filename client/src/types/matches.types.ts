@@ -1,7 +1,8 @@
+import { UserId } from '@em-tipp/common/types'
+
 import MatchGuessChoice from '../enums/MatchGuessChoice'
 
 import { TeamId } from './teams.types'
-import { UserId } from './user.types'
 
 export type MatchId = string
 

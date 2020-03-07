@@ -24,6 +24,7 @@
   "homepage": "https://github.com/LuddeW/Em-Tipp#readme",
   "workspaces": [
     "client",
+    "common",
     "server",
     "tools"
   ]
