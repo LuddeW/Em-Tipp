@@ -5,13 +5,15 @@ export interface BaseInputProps {
   type: string
   value: string
   onChange: (value: string, event: React.ChangeEvent<HTMLInputElement>) => void
+  disabled: boolean
 }
 
 export default function BaseInput({
   type,
   name,
   value,
-  onChange
+  onChange,
+  disabled
 }: BaseInputProps) {
   function onElementChange(event: React.ChangeEvent<HTMLInputElement>) {
     if (onChange) {
@@ -20,6 +22,12 @@ export default function BaseInput({
   }
 
   return (
-    <input type={type} name={name} value={value} onChange={onElementChange} />
+    <input
+      type={type}
+      name={name}
+      value={value}
+      disabled={disabled}
+      onChange={onElementChange}
+    />
   )
 }
