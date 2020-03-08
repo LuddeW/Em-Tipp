@@ -7,7 +7,7 @@ export default function ensureIsAdmin(
   response: Response,
   next: NextFunction
 ) {
-  if (!request.isAuthenticated() || !request.user?.isAdmin) {
+  if (!request.isAuthenticated() || !request.user?.admin) {
     response
       .status(401)
       .send({ message: STATUS_CODES[401] })

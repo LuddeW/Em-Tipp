@@ -1,61 +1,76 @@
-const { parse } = require('url')
+import { URL } from 'url'
 
-const { Pool } = require('pg')
+import { Pool, PoolConfig } from 'pg'
 
-let pool = null as any
+import baseLogger from '../logging'
+
+let pool: Pool
 
 export function setup(databaseUrl: string) {
-  const { hostname: host, port, auth, pathname } = parse(databaseUrl)
-  const [user, password] = auth.split(':')
-  const [, database] = pathname.split('/')
+  const parsedUrl = new URL(databaseUrl)
 
-  const config = {
-    user,
-    password,
-    host,
-    port,
+  const [, database] = parsedUrl.pathname.split('/')
+
+  const config: PoolConfig = {
     database,
-    ssl: true,
+    user: parsedUrl.username,
+    password: parsedUrl.password,
+    host: parsedUrl.hostname,
+    port: parseInt(parsedUrl.port, 10),
+    ssl: {
+      rejectUnauthorized: false
+    },
     max: 10
   }
 
   pool = new Pool(config)
 
-  pool.on('error', (error: string) => {
-    // eslint-disable-next-line no-console
-    console.error('PostgreSQL pool error', error)
+  pool.on('error', error => {
+    baseLogger.error('PostgreSQL pool error', error)
   })
-
-  return Promise.resolve()
 }
 
-export async function run(query: string, values: string) {
+export async function run(query: string, values: string[]) {
   try {
-    const result = (await pool.query(query, values)) as any
+    const result = await pool.query(query, values)
     return result
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error)
+    baseLogger.error('postgres.run', { query, error })
   }
 }
 
-export async function get(query: string, values: string[]) {
-  return pool.query(query, values).then(({ rows }: any) => rows[0])
+export async function get<T = any, V extends any[] = any[]>(
+  query: string,
+  values: V
+): Promise<T | undefined> {
+  return pool.query<T, V>(query, values).then(({ rows }) => rows[0])
 }
 
-export async function update(query: string, values: string[]) {
-  return pool.query(query, values).then(({ rowCount }: any) => rowCount)
+export async function update<V extends any[] = any[]>(
+  query: string,
+  values: V
+) {
+  return pool.query<any, V>(query, values).then(({ rowCount }) => rowCount)
 }
 
-export async function all(query: string, values: string[]) {
-  return pool.query(query, values).then(({ rows }: any) => rows)
+export async function all<T = any, V extends any[] = any[]>(
+  query: string,
+  values: V
+) {
+  return pool.query<T, V>(query, values).then(({ rows }) => rows)
 }
 
-export function insert(tableName: string, columns: string[], values: string[]) {
+export function insert<V extends any[] = any[]>(
+  tableName: string,
+  columns: string[],
+  values: V
+) {
   const queryColumns = columns.join(', ')
   const queryValues = columns.map((_, index) => `$${index + 1}`).join(', ')
 
   const query = `INSERT INTO ${tableName} (${queryColumns}) VALUES (${queryValues}) RETURNING id`
 
-  return pool.query(query, values).then(({ rows }: any) => rows[0].id)
+  return pool
+    .query<{ id: number }, V>(query, values)
+    .then(({ rows }) => rows[0].id)
 }

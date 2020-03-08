@@ -21,8 +21,9 @@ if (config.forceSsl) {
 if (config.databaseUrl) {
   try {
     setup(config.databaseUrl)
+    baseLogger.info('Database connected')
   } catch (error) {
-    baseLogger.error('Failed to setup database', { error })
+    baseLogger.error('Failed to connect to database', { error })
   }
 }
 

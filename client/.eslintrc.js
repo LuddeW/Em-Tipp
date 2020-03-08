@@ -3,6 +3,11 @@ const baseConfig = require('@em-tipp/tools/.eslintrc')
 module.exports = {
   ...baseConfig,
 
+  env: {
+    ...baseConfig.env,
+    browser: true
+  },
+
   extends: baseConfig.extends.concat([
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended'
