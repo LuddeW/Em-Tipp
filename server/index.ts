@@ -37,6 +37,7 @@ app.use(
   expressSession({
     name: 'em-tipp-session',
     secret: process.env.SESSION_SECRET || 'em-tipp-secret',
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 365 },
     resave: true,
     saveUninitialized: true
   })

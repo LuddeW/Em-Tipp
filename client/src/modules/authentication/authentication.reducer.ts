@@ -10,7 +10,7 @@ import {
 import { AuthenticationState } from './authentication.types'
 
 const initialState: AuthenticationState = {
-  loggedInUserId: null,
+  user: null,
 
   isLoggingIn: false,
   loginError: null
@@ -30,7 +30,7 @@ function authenticationReducer(
       draft.isLoggingIn = false
       break
     case LOGIN_SUCCESS:
-      draft.loggedInUserId = action.payload
+      draft.user = action.payload
       draft.isLoggingIn = false
       break
   }

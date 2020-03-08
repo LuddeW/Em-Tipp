@@ -16,7 +16,7 @@ export async function authenticateUser(username: string, pin: string) {
 }
 
 export async function getUserById(id: UserId) {
-  const query = 'SELECT id, username, displayname FROM USERS WHERE id=$1'
+  const query = 'SELECT id, username, displayname, admin FROM USERS WHERE id=$1'
   const values = [id]
 
   return (await get<User>(query, values)) ?? null

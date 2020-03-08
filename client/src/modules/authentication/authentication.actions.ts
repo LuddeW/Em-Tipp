@@ -1,4 +1,4 @@
-import { UserId } from '@em-tipp/common/types'
+import { User } from '@em-tipp/common/types'
 
 import { EMTippStoreDispatch } from '../../store/store.types'
 
@@ -16,7 +16,7 @@ export const LOGIN_FAILURE = '@authentication/LOGIN_FAILURE'
 export function login(username: string, password: string) {
   return async (dispatch: EMTippStoreDispatch) => {
     dispatch(loginRequest())
-    let response: any
+    let response
     try {
       response = await fetchLogin(username, password)
     } catch (error) {
@@ -24,14 +24,14 @@ export function login(username: string, password: string) {
       return
     }
 
-    dispatch(loginSuccess(response.id))
+    dispatch(loginSuccess(response))
   }
 }
 
 export function tryGetAuthenticatedUser() {
   return async (dispatch: EMTippStoreDispatch) => {
     dispatch(loginRequest())
-    let response: any
+    let response
     try {
       response = await tryFetchAuthenticatedUser()
     } catch (_) {
@@ -55,9 +55,9 @@ function loginFailure(error: Error): LoginFailureAction {
   }
 }
 
-function loginSuccess(userId: UserId): LoginSuccessAction {
+function loginSuccess(user: User): LoginSuccessAction {
   return {
     type: LOGIN_SUCCESS,
-    payload: userId
+    payload: user
   }
 }

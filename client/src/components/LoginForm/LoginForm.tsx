@@ -12,10 +12,16 @@ import {
 import PasswordInput from '../_inputs/PasswordInput'
 import TextInput from '../_inputs/TextInput'
 
-export default function LoginForm() {
+interface LoginFormProps {
+  successRedirectTo?: string
+}
+
+export default function LoginForm({ successRedirectTo }: LoginFormProps) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
   const dispatch = useEmTippStoreDispatch()
+
   const authenticating = useSelector(getIsAuthenticating)
   const authenticationError = useSelector(getAuthenticationError)
   const authenticated = useSelector(getAuthenticatedUserId)
@@ -50,7 +56,11 @@ export default function LoginForm() {
       </div>
 
       {authenticating && <h2>Loading...</h2>}
-      {authenticated && <Redirect to={'/'} />}
+
+      {authenticated && successRedirectTo && (
+        <Redirect to={successRedirectTo} />
+      )}
+
       {authenticationError && <h2>{authenticationError.message}</h2>}
     </div>
   )

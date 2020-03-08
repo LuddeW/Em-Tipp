@@ -1,4 +1,4 @@
-import { UserId } from '@em-tipp/common/types'
+import { User } from '@em-tipp/common/types'
 
 import { EmptyAction, PayloadAction } from '../../store/store.types'
 
@@ -9,7 +9,7 @@ import {
 } from './authentication.actions'
 
 export interface AuthenticationState {
-  loggedInUserId: UserId | null
+  user: User | null
 
   isLoggingIn: boolean
   loginError: Error | null
@@ -17,7 +17,7 @@ export interface AuthenticationState {
 
 export type LoginRequestAction = EmptyAction<typeof LOGIN_REQUEST>
 export type LoginFailureAction = PayloadAction<typeof LOGIN_FAILURE, Error>
-export type LoginSuccessAction = PayloadAction<typeof LOGIN_SUCCESS, UserId>
+export type LoginSuccessAction = PayloadAction<typeof LOGIN_SUCCESS, User>
 
 export type AuthenticationActions =
   | LoginRequestAction

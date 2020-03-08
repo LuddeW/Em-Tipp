@@ -8,7 +8,7 @@ export default function LoginPage() {
   return (
     <PageLayout>
       <Heading text="EM-Kampen 🏆" />
-      <LoginForm />
+      <LoginForm successRedirectTo="/" />
     </PageLayout>
   )
 }

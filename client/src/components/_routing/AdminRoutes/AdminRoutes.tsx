@@ -1,8 +1,12 @@
 import React, { Suspense } from 'react'
 import { useSelector } from 'react-redux'
-import { Route, Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
-import { getIsAuthenticated } from '../../../modules/authentication/authentication.selectors'
+import {
+  getIsAuthenticated,
+  getIsAdminUser
+} from '../../../modules/authentication/authentication.selectors'
+import Unathorized from '../../../pages/_error/Unathorized'
 import FullPageLoader from '../../_loaders/FullPageLoader'
 
 const AsyncAdminRoute = React.lazy(() => import('./AdminRouter.async'))
@@ -13,11 +17,11 @@ interface AdminRoutesProps {
 
 export default function AdminRoutes({ path }: AdminRoutesProps) {
   const isAuthenticated = useSelector(getIsAuthenticated)
-  const isAdmin = true
+  const isAdmin = useSelector(getIsAdminUser)
 
   function onRouteRender() {
     if (!isAuthenticated || !isAdmin) {
-      return <Redirect to="/" />
+      return <Unathorized />
     }
 
     return (

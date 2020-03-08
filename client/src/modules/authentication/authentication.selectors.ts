@@ -8,12 +8,17 @@ function getAuthenticationState(state: EMTippStoreState) {
 
 export const getIsAuthenticated = createSelector(
   getAuthenticationState,
-  authenticationState => authenticationState.loggedInUserId !== null
+  authenticationState => authenticationState.user !== null
+)
+
+export const getIsAdminUser = createSelector(
+  getAuthenticationState,
+  authenticationState => authenticationState.user?.admin === true
 )
 
 export const getAuthenticatedUserId = createSelector(
   getAuthenticationState,
-  authenticationState => authenticationState.loggedInUserId
+  authenticationState => authenticationState.user?.id ?? null
 )
 
 export const getIsAuthenticating = createSelector(
