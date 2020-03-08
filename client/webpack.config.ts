@@ -2,11 +2,11 @@
 
 import { join } from 'path'
 
-import { Configuration, DefinePlugin } from 'webpack'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
 import dotenvFlow from 'dotenv-flow'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { Configuration, DefinePlugin } from 'webpack'
 import 'webpack-dev-server'
 
 dotenvFlow.config()
@@ -102,8 +102,10 @@ const config: Configuration = {
   },
 
   plugins: [
+    // @ts-ignore
     new CleanWebpackPlugin(),
 
+    // @ts-ignore
     new HtmlWebpackPlugin({
       template: join(__dirname, 'public/index.html')
     }),
@@ -112,6 +114,7 @@ const config: Configuration = {
       __DEV__: env.NODE_ENV !== 'production'
     }),
 
+    // @ts-ignore
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash:10].css',
       chunkFilename: '[name].[contenthash:10].css'
