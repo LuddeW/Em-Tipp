@@ -8,7 +8,7 @@ import { authenticateUser, getUserById } from './db/models/users.query'
 export function setupPassport(app: Express) {
   passport.use(
     new LocalStrategy(async (username, pin, done) => {
-      let user: User | undefined
+      let user = null
 
       try {
         user = await authenticateUser(username, pin)
@@ -35,6 +35,10 @@ export function setupPassport(app: Express) {
       user = await getUserById(id)
     } catch (error) {
       return done(error)
+    }
+
+    if (!user) {
+      return done(new Error(`Could not deserialize user with id="${id}"`))
     }
 
     done(null, user)

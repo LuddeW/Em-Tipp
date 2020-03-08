@@ -1,12 +1,6 @@
 declare namespace Express {
-  export interface User {
-    id: string
-    username: string
-    displayname: string
-    isAdmin?: boolean
-  }
-
-  export interface Request {
+  interface Request {
+    user?: import('@em-tipp/common/types').User
     requestId?: string
   }
 }
