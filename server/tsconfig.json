@@ -4,7 +4,9 @@
   "compilerOptions": {
     "noEmit": false,
     "outDir": "../bin/",
-    "sourceMap": true
+    "sourceMap": true,
+
+    "typeRoots": ["./@types"]
   },
 
   "include": ["./**/*.ts", "db/index.js"],

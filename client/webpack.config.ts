@@ -39,7 +39,10 @@ const config: Configuration = {
     hot: true,
     inline: true,
     historyApiFallback: true,
-    contentBase: join(__dirname, 'public')
+    contentBase: join(__dirname, 'public'),
+    proxy: {
+      '/api': 'http://localhost:4002'
+    }
   },
 
   devtool: env.NODE_ENV === 'production' ? 'source-map' : 'inline-source-map',

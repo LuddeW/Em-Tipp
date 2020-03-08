@@ -1,11 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import {
   RouteProps,
   Route,
   RouteComponentProps,
   Redirect
 } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
 import { getIsAuthenticated } from '../../../modules/authentication/authentication.selectors'
 

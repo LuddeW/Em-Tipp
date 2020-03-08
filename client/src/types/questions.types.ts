@@ -1,6 +1,6 @@
-import QuestionType from '../enums/QuestionType'
+import { UserId } from '@em-tipp/common/types'
 
-import { UserId } from './user.types'
+import QuestionType from '../enums/QuestionType'
 
 export type QuestionId = string
 

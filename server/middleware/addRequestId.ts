@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import uuid from 'uuid'
+import { v1 as uuidv1 } from 'uuid'
 
 import { createScopedLogger } from '../logging'
 
@@ -10,19 +10,17 @@ export default function addRequestId(
   response: Response,
   next: NextFunction
 ) {
-  const requestId = uuid.v1()
+  const requestId = uuidv1()
 
   logger.debug('Adding requestId to request', {
     _request: {
       url: request.url,
-      method: request.method,
-      headers: request.rawHeaders
+      method: request.method
     },
     requestId
   })
 
-  const requestAsAny = request as any // Temporary because ts-node can't find type in global.d.ts
-  requestAsAny.requestId = requestId
+  request.requestId = requestId
 
   next()
 }

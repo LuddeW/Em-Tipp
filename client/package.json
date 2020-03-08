@@ -61,6 +61,7 @@
     "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
+    "@em-tipp/common": "*",
     "@hot-loader/react-dom": "^16.11.0",
     "immer": "^5.2.1",
     "react": "^16.12.0",

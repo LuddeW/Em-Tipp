@@ -1,4 +1,8 @@
-import { AuthenticationState } from './authentication/authentication.types'
+import { AdminState } from './admin/admin.types'
+import {
+  AuthenticationState,
+  AuthenticationActions
+} from './authentication/authentication.types'
 import { CompetitionState } from './competition/competition.types'
 import { MatchGuessesState } from './matchGuesses/matchGuesses.types'
 import { MatchesState } from './matches/matches.types'
@@ -7,6 +11,7 @@ import { QuestionsState } from './questions/questions.types'
 import { UsersState } from './users/users.types'
 
 export interface EMTippStoreState {
+  readonly admin?: AdminState
   readonly authentication: AuthenticationState
   readonly competition: CompetitionState
   readonly matches: MatchesState
@@ -16,4 +21,4 @@ export interface EMTippStoreState {
   readonly users: UsersState
 }
 
-export type AllStoreActions = any
+export type AllStoreActions = AuthenticationActions

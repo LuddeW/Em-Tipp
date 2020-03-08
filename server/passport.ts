@@ -1,3 +1,4 @@
+import { User, UserId } from '@em-tipp/common/types'
 import { Express } from 'express'
 import passport from 'passport'
 import { Strategy as LocalStrategy } from 'passport-local'
@@ -7,10 +8,10 @@ import { authenticateUser, getUserById } from './db/models/users.query'
 export function setupPassport(app: Express) {
   passport.use(
     new LocalStrategy(async (username, pin, done) => {
-      let user
+      let user = null
 
       try {
-        await authenticateUser(username, pin)
+        user = await authenticateUser(username, pin)
       } catch (error) {
         return done(error)
       }
@@ -23,17 +24,21 @@ export function setupPassport(app: Express) {
     })
   )
 
-  passport.serializeUser<any, any>((user, done) => {
+  passport.serializeUser<User, UserId>((user, done) => {
     done(null, user.id)
   })
 
-  passport.deserializeUser<any, any>(async (id, done) => {
+  passport.deserializeUser<User, UserId>(async (id, done) => {
     let user
 
     try {
       user = await getUserById(id)
     } catch (error) {
       return done(error)
+    }
+
+    if (!user) {
+      return done(new Error(`Could not deserialize user with id="${id}"`))
     }
 
     done(null, user)

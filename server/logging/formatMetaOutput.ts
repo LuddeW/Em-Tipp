@@ -27,5 +27,5 @@ export function metaOutputReplacer(key: string, value: any) {
 }
 
 function formatRequest(request: Request) {
-  return (request as any).requestId
+  return request.requestId
 }
