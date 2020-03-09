@@ -2,16 +2,8 @@ import React from 'react'
 
 import PageLayout from '../../components/_layouts/PageLayout'
 import UppercaseHeading from '../../components/_typography/UppercaseHeading'
-import useEmTippStoreDispatch from '../../hooks/useEmTippStoreDispatch'
-import useOnMount from '../../hooks/useOnMount'
-import { tryGetAuthenticatedUser } from '../../modules/authentication/authentication.actions'
 
 export default function WelcomePage() {
-  const dispatch = useEmTippStoreDispatch()
-  useOnMount(() => {
-    dispatch(tryGetAuthenticatedUser())
-  })
-
   return (
     <PageLayout>
       <UppercaseHeading>
