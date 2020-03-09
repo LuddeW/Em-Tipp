@@ -12,7 +12,12 @@ export default function Question({ question }: QuestionCardProps) {
   return (
     <div>
       <h2>{question}</h2>
-      <TextInput name={question} value={value} onChange={setValue} />
+      <TextInput
+        name={question}
+        value={value}
+        disabled={false}
+        onChange={setValue}
+      />
     </div>
   )
 }
