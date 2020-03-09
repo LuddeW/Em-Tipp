@@ -1,7 +1,7 @@
 import React from 'react'
 
-import PageLayout from '../../components/_layouts/PageLayout'
 import Question from '../../components/Question'
+import PageLayout from '../../components/_layouts/PageLayout'
 import Heading from '../../components/_typography/Heading'
 
 export interface QuestionObject {
@@ -19,7 +19,7 @@ export default function QuestionPage({
 }: QuestionPageInterface) {
   const questions = questionsArray.map(questionObject => {
     return (
-      <Question question={questionObject.question} key={questionObject.id} />
+      <Question key={questionObject.id} question={questionObject.question} />
     )
   })
 
